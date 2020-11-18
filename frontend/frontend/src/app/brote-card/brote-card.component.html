@@ -1,0 +1,24 @@
+<div class="brote-card" *ngIf="brote">
+
+    <div class="brote-name">
+       <h3>{{brote.name}}</h3> 
+    </div>
+
+    <div class="brote-description">
+        Descripción: {{brote.description}}
+    </div>
+
+    <div class="brote-inicio">
+        Fecha Inicio: {{brote.start_date}}
+    </div>
+
+    <div class="brote-final">
+        Fecha Final: {{brote.finish_date}}
+    </div>
+
+    <div class="center">
+        <button (click)="updateBrote()" class="button">Actualizar Brote</button>
+      </div>
+    
+</div>
+

@@ -1,0 +1,35 @@
+<div class="login">
+    <h2 class="login-header">Actualizar Brote</h2>
+    <form [formGroup]="broteForm" class="login-container" (ngSubmit)="submitBrote()">
+      <input type="name" placeholder="Name*" formControlName="name" />
+      <ng-container
+        *ngIf="!formControls.name.valid &&formControls.name.touched"
+      >
+        <p *ngIf="formControls.name.errors.required">
+          Name is required
+        </p>
+      </ng-container>
+  
+      <input type="inicio" placeholder="Fecha Inicio*" formControlName="inicio" />
+      <ng-container
+        *ngIf="!formControls.inicio.valid &&formControls.inicio.touched"
+      >
+        <p *ngIf="formControls.inicio.errors.required">
+          Fecha Inicio is required
+        </p>
+      </ng-container>
+  
+      <input type="final" placeholder="Fecha final*" formControlName="final" />
+      <ng-container
+        *ngIf="!formControls.final.valid &&formControls.final.touched"
+      >
+        <p *ngIf="formControls.final.errors.required">
+          Fecha final is required
+        </p>
+      </ng-container>
+  
+      <p>
+        <input type="submit" value="Submit" [disabled]="broteForm.invalid" />
+      </p>
+    </form>
+  </div>
