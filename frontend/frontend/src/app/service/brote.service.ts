@@ -15,7 +15,7 @@ export class BroteService {
   }
 
   getBrote(name: String){
-    return this.http.get<Brote[]>(environment.apiURL + '/brote/' + name);
+    return this.http.get<Brote>(environment.apiURL + '/brote/' + name);
   }
 
   updateBrote(brote: any, name: string){
