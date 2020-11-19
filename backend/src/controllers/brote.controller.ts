@@ -21,7 +21,8 @@ const getBrote = async (req: Request, res: Response) => {
 
 const updateBrote = async (req: Request, res: Response) => {
     const name = req.params.name;
-    Brote.update({"name": name}, {$set: {"name": req.body.name, "description": req.body.description, "inicio": req.body.start_date, "final": req.body.finish_date}}).then((data) =>{
+    console.log("uevb", req.body);
+    Brote.update({"name": name}, {$set: {"name": req.body.name, "description": req.body.description, "start_date": req.body.start_date, "finish_date": req.body.finish_date}}).then((data) =>{
         res.status(201).json(data);
     }).catch((err) =>{
         res.status(500).json(err);

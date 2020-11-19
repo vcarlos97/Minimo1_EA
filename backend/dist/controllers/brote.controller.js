@@ -33,7 +33,8 @@ const getBrote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const updateBrote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const name = req.params.name;
-    brotes_1.default.update({ "name": name }, { $set: { "name": req.body.name, "description": req.body.description, "inicio": req.body.start_date, "final": req.body.finish_date } }).then((data) => {
+    console.log("uevb", req.body);
+    brotes_1.default.update({ "name": name }, { $set: { "name": req.body.name, "description": req.body.description, "start_date": req.body.start_date, "finish_date": req.body.finish_date } }).then((data) => {
         res.status(201).json(data);
     }).catch((err) => {
         res.status(500).json(err);

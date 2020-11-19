@@ -19,7 +19,7 @@ export class BroteService {
   }
 
   updateBrote(brote: any, name: string){
-    return this.http.post(environment.apiURL + '/brote/update' + name, brote);
+    return this.http.post(environment.apiURL + '/brote/update/' + name, brote);
   }
 
 }

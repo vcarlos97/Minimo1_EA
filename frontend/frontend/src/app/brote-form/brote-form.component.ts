@@ -33,8 +33,8 @@ export class BroteFormComponent implements OnInit {
     this.broteForm = this.formBuilder.group({
       name: [ this.broteName, [Validators.required, Validators.nullValidator]],
       description: [this.broteDescription],
-      start_date: [ this.broteInicio, [Validators.required, Validators.nullValidator]],
-      finish_date: [ this.broteFinal, [Validators.required, Validators.nullValidator]],
+      inicio: [ this.broteInicio, [Validators.required, Validators.nullValidator]],
+      final: [ this.broteFinal, [Validators.required, Validators.nullValidator]],
     });
   }
 
@@ -49,13 +49,13 @@ export class BroteFormComponent implements OnInit {
     }
     const name = this.broteForm.value.name;
     const description = this.broteForm.value.description;
-    const inicio = this.broteForm.value.start_date;
-    const final = this.broteForm.value.finish_date;
+    const inicio = this.broteForm.value.inicio;
+    const final = this.broteForm.value.final;
     const brote = { "name": name, "description": description, "start_date": inicio, "finish_date": final};
     this.broteService.updateBrote(brote, this.brname).subscribe(() => {
-      this.router.navigateByUrl('brote');
+      this.router.navigateByUrl('/brotes');
     })
-  
+
   }
 
 }
