@@ -7,5 +7,5 @@ const brote_controller_1 = __importDefault(require("../controllers/brote.control
 const router = express_1.Router();
 router.get('/all', brote_controller_1.default.getBrotes);
 router.get('/:name', brote_controller_1.default.getBrote);
-router.post('/newBrote', brote_controller_1.default.updateBrote);
+router.post('/update/:name', brote_controller_1.default.updateBrote);
 module.exports = router;

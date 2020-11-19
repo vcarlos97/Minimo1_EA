@@ -14,4 +14,12 @@ export class BroteService {
     return this.http.get<Brote[]>(environment.apiURL + '/brote/all');
   }
 
+  getBrote(name: String){
+    return this.http.get<Brote[]>(environment.apiURL + '/brote/' + name);
+  }
+
+  updateBrote(brote: any, name: string){
+    return this.http.post(environment.apiURL + '/brote/update' + name, brote);
+  }
+
 }

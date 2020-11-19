@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/all', broteController.getBrotes);
 router.get('/:name', broteController.getBrote);
-router.post('/newBrote', broteController.updateBrote);
+router.post('/update/:name', broteController.updateBrote);
 
 export = router;

@@ -1,3 +1,4 @@
+import { BroteService } from './../service/brote.service';
 import { Component, Input,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brote } from '../model/brote';
@@ -15,9 +16,15 @@ export class BroteCardComponent implements OnInit {
   @Input()
   broteIndex: number;
 
-  constructor(private router: Router) { }
+  constructor(public broteService: BroteService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  updateBrote(name: string): void{
+    this.broteService.getBrote(name).subscribe(() => {
+      this.router.navigateByUrl('update/' + name);
+    });
   }
 
 }

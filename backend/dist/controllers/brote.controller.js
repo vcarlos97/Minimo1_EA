@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const brotes_1 = __importDefault(require("../models/brotes"));
 const getBrotes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const results = yield brotes_1.default.find({}).populate('students');
+        const results = yield brotes_1.default.find({});
         return res.status(200).json(results);
     }
     catch (err) {
@@ -24,7 +24,7 @@ const getBrotes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const getBrote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const results = yield brotes_1.default.find({ "_id": req.params.id }).populate('students');
+        const results = yield brotes_1.default.find({ "name": req.params.name });
         return res.status(200).json(results);
     }
     catch (err) {
@@ -32,5 +32,11 @@ const getBrote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const updateBrote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const name = req.params.name;
+    brotes_1.default.update({ "name": name }, { $set: { "name": req.body.name, "description": req.body.description, "inicio": req.body.start_date, "final": req.body.finish_date } }).then((data) => {
+        res.status(201).json(data);
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
 });
 exports.default = { getBrotes, getBrote, updateBrote };
